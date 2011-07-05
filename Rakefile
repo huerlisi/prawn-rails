@@ -1,7 +1,7 @@
 require 'rake'
 require 'rake/testtask'
 require 'rdoc/task'
-require 'rake/gempackagetask'
+require 'rubygems/package_task'
 require 'rubygems'
 
 PKG_FILES = FileList[
@@ -34,7 +34,7 @@ desc 'Default: create gem'
 task :default => :gem
 
 desc 'Turn this plugin into a gem.'
-Rake::GemPackageTask.new(spec) do |pkg|
+Gem::PackageTask.new(spec) do |pkg|
   pkg.gem_spec = spec
 end
 
